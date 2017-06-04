@@ -87,10 +87,10 @@ body {
 
 .abajo{
 	color: #352384;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	font-weight: 300;
-	line-height: 0;
 	margin-left: 30px;
+	margin-top: -30px;
 }
 #box-2{
 	background: linear-gradient(#76278f,#2b1e66);
@@ -268,11 +268,13 @@ hr{
 }
 
 
-.group{ 
-	flex-direction: column;
-	margin-left: 30px;
+.group 			  { 
+  position:relative; 
+  margin-bottom:45px;
+  margin-left: 30px;
+  margin-top: 10px; 
 }
-input{
+input 				{
   font-size:18px;
   padding:10px 10px 10px 5px;
   display:block;
@@ -280,30 +282,84 @@ input{
   border:none;
   border-bottom:1px solid #757575;
 }
-input:focus{ outline:none; }
+input:focus 		{ outline:none; }
 
 /* LABEL ======================================= */
-label{
+label 				 {
   color:#999; 
-  font-size:12px;
+  font-size:18px;
   font-weight:normal;
+  position:absolute;
   pointer-events:none;
+  left:5px;
+  top:10px;
   transition:0.2s ease all; 
   -moz-transition:0.2s ease all; 
   -webkit-transition:0.2s ease all;
 }
 
 /* active state */
-input:focus ~ label, input:valid ~ label{
+input:focus ~ label, input:valid ~ label 		{
   top:-20px;
-  font-size:10px;
+  font-size:14px;
   color:#5264AE;
 }
 
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
 
 /* active state */
 input:focus ~ .bar:before, input:focus ~ .bar:after {
   width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
 }
 
 button{
