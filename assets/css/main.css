@@ -37,7 +37,6 @@ body {
 	top:0;
 	left: 0;
 	width: 100%;
-	background-color: white;
 }
 
 .menu.flex-container{
@@ -269,11 +268,16 @@ hr{
 }
 
 
-.group 			  { 
-  position:relative; 
+#group 			  { 
+  flex-direction: column; 
   margin-bottom:45px;
   margin-left: 30px;
   margin-top: 10px; 
+}
+
+input[placeholder] {
+   font-size: 14px;
+   letter-spacing: 5px;
 }
 input 				{
   font-size:18px;
@@ -290,7 +294,7 @@ label 				 {
   color:#999; 
   font-size:18px;
   font-weight:normal;
-  position:absolute;
+  position: relative;
   pointer-events:none;
   left:5px;
   top:10px;
@@ -386,4 +390,7 @@ button{
 	line-height:4px;
 }
 
-/* linea*/
+/* linea de js*/
+
+.nav-colored { background-color:#fff; }
+.nav-transparent { background-color:transparent;}
